@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
 import PageHeader from "@/components/ui/PageHeader";
 import { Sparkles, Shirt, Images, Bookmark, Calendar, ArrowRight } from "lucide-react";
 
@@ -9,14 +10,22 @@ const features = [
   { to: "/calendar", label: "Calendar", desc: "Plan what to wear", icon: Calendar },
 ];
 
+function greeting(name: string | null): string {
+  const hour = new Date().getHours();
+  const time = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  return name ? `${time}, ${name}.` : `${time}.`;
+}
+
 export default function HomePage() {
+  const { profile } = useAuth();
+
   return (
     <div className="md:ml-20">
       <PageHeader
-        title="Driply"
-        subtitle="Your personal wardrobe and styling companion."
+        title={greeting(profile?.display_name ?? null)}
+        subtitle="Let's figure out what you're wearing."
       />
-      <div className="px-6 md:px-12">
+      <div className="px-6 md:px-12 pb-8">
         <div className="rounded-3xl bg-ink-900 p-8 md:p-12 text-bone-50">
           <Sparkles size={28} strokeWidth={1.5} className="text-ochre-300 mb-6" />
           <h2 className="text-2xl md:text-3xl font-display tracking-tight text-balance">

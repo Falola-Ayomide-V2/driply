@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import AppLayout from "@/layouts/AppLayout";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import AuthPage from "@/pages/Auth";
+import OnboardingPage from "@/pages/Onboarding";
 import HomePage from "@/pages/Home";
 import WardrobePage from "@/pages/Wardrobe";
 import InspirationPage from "@/pages/Inspiration";
@@ -19,6 +20,7 @@ export default function App() {
     <Routes>
       <Route path="/auth" element={<AuthPage />} />
       <Route element={<ProtectedRoute />}>
+        <Route path="/onboarding" element={<OnboardingPage />} />
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/wardrobe" element={<WardrobePage />} />
