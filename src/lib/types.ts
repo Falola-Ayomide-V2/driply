@@ -1,21 +1,23 @@
-// Database table types for future phases.
-// These are intentionally defined here so future migrations align with the
-// frontend's type expectations. Tables are NOT created yet.
+// Database table types matching the Supabase schema.
 
 export interface Profile {
-  id: string;
-  username: string | null;
+  user_id: string;
+  display_name: string | null;
+  location: string | null;
   avatar_url: string | null;
+  onboarding_completed: boolean;
   created_at: string;
+  updated_at: string;
 }
 
 export interface UserPreference {
-  id: string;
   user_id: string;
-  style_tags: string[];
-  color_palette: string[];
-  budget_range: string | null;
+  lifestyle: string[];
+  preferred_styles: string[];
+  favourite_colours: string[];
+  style_notes: string | null;
   created_at: string;
+  updated_at: string;
 }
 
 export interface WardrobeItem {
