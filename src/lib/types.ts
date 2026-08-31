@@ -23,13 +23,20 @@ export interface UserPreference {
 export interface WardrobeItem {
   id: string;
   user_id: string;
-  name: string;
-  category: string;
+  image_path: string;
+  category: string | null;
+  subcategory: string | null;
+  main_colour: string | null;
+  secondary_colours: string[];
+  pattern: string | null;
   brand: string | null;
-  color: string | null;
-  image_url: string | null;
-  metadata: Record<string, unknown>;
+  tags: string[];
+  notes: string | null;
+  ai_attributes: Record<string, unknown> | null;
+  ai_status: string | null;
+  archived: boolean;
   created_at: string;
+  updated_at: string;
 }
 
 export interface Outfit {
