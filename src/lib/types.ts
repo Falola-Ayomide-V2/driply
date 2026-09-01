@@ -45,8 +45,9 @@ export interface Outfit {
   title: string;
   occasion: string | null;
   season: string | null;
-  image_url: string | null;
+  notes: string | null;
   created_at: string;
+  updated_at: string;
 }
 
 export interface OutfitItem {
@@ -56,10 +57,19 @@ export interface OutfitItem {
   position: number;
 }
 
+export interface OutfitWithItems extends Outfit {
+  outfit_items: (OutfitItem & { wardrobe_item: WardrobeItem })[];
+}
+
 export interface CalendarEntry {
   id: string;
   user_id: string;
   outfit_id: string;
   scheduled_date: string;
   note: string | null;
+  created_at: string;
+}
+
+export interface CalendarEntryWithOutfit extends CalendarEntry {
+  outfit: Pick<Outfit, "id" | "title">;
 }

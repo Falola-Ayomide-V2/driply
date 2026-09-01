@@ -28,6 +28,7 @@ export default function App() {
           <Route path="/wardrobe/:id" element={<WardrobeDetailPage />} />
           <Route path="/inspiration" element={<InspirationPage />} />
           <Route path="/fits" element={<FitsPage />} />
+          <Route path="/fits/new" element={<FitDetailPage />} />
           <Route path="/fits/:id" element={<FitDetailPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/profile" element={<ProfilePage />} />
